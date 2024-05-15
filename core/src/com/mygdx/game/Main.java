@@ -45,6 +45,6 @@ public class Main extends Game {
 		enemyWithBows=new Array<EnemyWithBow>();
 		wave=new Wave(10,1,2);
 		// Добавил тестовый комментарий
-
+// sdfgsdfgsdfgsdgsdfgsdfg
 	}
 }
