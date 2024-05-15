@@ -41,10 +41,9 @@ public class Main extends Game {
 		setScreen(new GameScreen(this));
 		joostikBullet=new JoostikPlayer(circle,stick,new Point2D(Widith/5,Height/3),Height/5);
 		bulletGen=new BulletGen();
+		livesArray=new Array<Lives>();
 		bullets=new Array<Bullet>();
 		enemyWithBows=new Array<EnemyWithBow>();
-		wave=new Wave(10,1,2);
-		// Добавил тестовый комментарий
-// sdfgsdfgsdfgsdgsdfgsdfg
+		wave=new Wave(4,1,2);
 	}
 }

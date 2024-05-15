@@ -16,12 +16,12 @@ public class Lives extends Entety{
     public Lives(float x,float y){
         this.positionLive=new Point2D(x,y);
         heal=20;
-        imgLive=new Texture("");
+        imgLive=new Texture("Healy.png");
         boundsLive=new Circle(positionLive,sideL);
     }
     @Override
     public void draw(SpriteBatch batch) {
-        batch.draw(imgLive,positionLive.getX()-sideL,positionLive.getY()-sideL,sideL*2,sideL*2);
+        batch.draw(imgLive,positionLive.getX()-sideL,positionLive.getY()-sideL,sideL,sideL);
     }
 
     @Override

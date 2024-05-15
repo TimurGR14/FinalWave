@@ -17,7 +17,6 @@ public class Wave {
 
    public Wave(int Delay,int WaveNumber,int minEnemy){
        //FreeTypeGenerator
-
        this.Delay=Delay;
        this.WaveNumber=WaveNumber;
        this.minEnemy=minEnemy;

@@ -116,6 +116,7 @@ public class GameScreen implements Screen {
         Main.bulletGen.update(Main.joostikBullet);
         for(int j=0;j<Main.bullets.size;j++){Main.bullets.get(j).update();if (Main.bullets.get(j).isOut)Main.bullets.removeIndex(j--);
         }
+        for(int j=0;j<Main.livesArray.size;j++){Main.livesArray.get(j).update();}
         for(int k=0;k<Main.enemyWithBows.size;k++){
             Main.enemyWithBows.get(k).update();
             if (Main.enemyWithBows.get(k).getHealthEnemyBow()<1){
@@ -123,7 +124,9 @@ public class GameScreen implements Screen {
             }
         }
         collision();
-        collP();
+        //collP();
+        upHealTimer();
+        colH();
         Main.wave.update();
     }
     public void GameRender(SpriteBatch batch){
@@ -133,8 +136,8 @@ public class GameScreen implements Screen {
         for(int j=0;j<Main.bullets.size;j++){Main.bullets.get(j).draw(batch);
         }
         for(int l=0;l<Main.enemyWithBows.size;l++){Main.enemyWithBows.get(l).draw(batch);
-
         }
+        for(int j=0;j<Main.livesArray.size;j++){Main.livesArray.get(j).draw(batch);}
     }
     @Override
     public void dispose() {
@@ -172,14 +175,18 @@ public class GameScreen implements Screen {
         if(Seconds>=DelayL){
             float x=MathUtils.random(64,Main.Widith);
             float y=MathUtils.random(64,Main.Height);
-            lives=new Lives(x,y);
+            Main.livesArray.add(new Lives(x,y));
             StartTimerL=0;
             Seconds=0;
         }
     }
     public  void  colH(){
-        if(Main.player.getBounds().Overlaps(lives.getBoundsLive())){
-
+        for (int i=0;i<Main.livesArray.size;i++){
+            if(Main.livesArray.get(i).getBoundsLive().Overlaps(Main.player.getBounds())){
+                Main.player.Heal();
+                Main.livesArray.removeIndex(i);
+                break;
+            }
         }
     }
 }
